@@ -18,10 +18,10 @@ public class FilmQueryApp {
 		try {
 			app.test();
 		} catch (SQLException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		app.launch();
-}
+	}
 
 	private void test() throws SQLException {
 		Film film = db.findFilmById(11);
@@ -55,6 +55,8 @@ public class FilmQueryApp {
 				Film film = db.findFilmById(filmID);
 				if (film != null) {
 					System.out.println(film);
+				} else {
+					System.out.println("No film matches this id.");
 				}
 			}
 			if (selection.equals("2")) {
@@ -68,7 +70,7 @@ public class FilmQueryApp {
 
 					}
 				} else {
-					System.out.println();
+					System.out.println("No film matches this keyword.");
 				}
 			}
 		} while (!selection.equals("3"));

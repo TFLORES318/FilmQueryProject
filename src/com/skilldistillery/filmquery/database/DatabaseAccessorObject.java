@@ -34,7 +34,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, filmId);
 		ResultSet filmResult = stmt.executeQuery();
-		if (filmResult.next()) { 
+		if (filmResult.next()) {
 			film = new Film(); 
 			film.setId(filmResult.getInt("id"));
 			film.setTitle(filmResult.getString("title"));
@@ -47,9 +47,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			filmResult.close();
 			stmt.close();
 			conn.close();
-		}
-		else {
-			System.out.println("No film was found.");
 		}
 		return film;
 	}
